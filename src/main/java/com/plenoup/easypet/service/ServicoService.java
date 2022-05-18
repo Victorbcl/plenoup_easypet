@@ -31,13 +31,7 @@ public class ServicoService {
     public List<ServicoDTO> buscaServicoPorIdPetshopNomeValorServico(final Integer idPetshop,
                                                                      final String nome,
                                                                      final BigDecimal valor) {
-        final List<ServicoEntity> servicoEntityList;
-        try {
-            final Optional<PetshopEntity> optionalPetshop = petshopRepository.findById(idPetshop);
-            servicoEntityList = servicoRepository.findByNomeContainingAndValorAndPetshop(nome, valor, optionalPetshop.get());
-        } catch (NoSuchElementException e) {
-            return List.of();
-        }
+        final List<ServicoEntity> servicoEntityList = servicoRepository.findByPetshop_IdAndNomeContainingAndValor(idPetshop, nome, valor);
         return servicoEntityList.stream().map(servicoEntity -> new ServicoDTO(servicoEntity)).collect(Collectors.toList());
     }
 }
