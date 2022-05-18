@@ -1,5 +1,6 @@
 package com.plenoup.easypet;
 
+import com.plenoup.easypet.controller.ServicoController;
 import com.plenoup.easypet.entity.Petshop;
 import com.plenoup.easypet.entity.Servico;
 import com.plenoup.easypet.repository.PetshopRepository;
@@ -20,6 +21,9 @@ public class EasypetApplication implements CommandLineRunner {
 
     @Autowired
     private PetshopRepository petshopRepository;
+
+    @Autowired
+    private ServicoController servicoController;
 
     public static void main(final String[] args) {
         SpringApplication.run(EasypetApplication.class, args);
@@ -47,5 +51,7 @@ public class EasypetApplication implements CommandLineRunner {
         petshopRepository.save(petshop);
         petshop.setServicos((Arrays.asList(servicoTosa, servicoBanho)));
         servicoRepository.saveAll(Arrays.asList(servicoTosa, servicoBanho));
+
+        servicoController.findByPetshop(1);
     }
 }

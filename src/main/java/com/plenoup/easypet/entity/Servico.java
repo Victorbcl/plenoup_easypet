@@ -5,18 +5,32 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity(name = "tb_servico")
 @Getter
 @Setter
 @Builder
-public class Servico {
+//@NoArgsConstructor
+//@AllArgsConstructor
+public class Servico implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    public Servico() {
+    }
+
+    public Servico(final Integer id, final String nome, final BigDecimal valor, final Petshop petshop) {
+        this.id = id;
+        this.nome = nome;
+        this.valor = valor;
+        this.petshop = petshop;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "nome")
     private String nome;
