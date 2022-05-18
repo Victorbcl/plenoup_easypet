@@ -23,9 +23,9 @@ public class ServicoController {
 
     @GetMapping("/{id_petshop}/")
     public ResponseEntity<Object> findByPetshop(@PathVariable("id_petshop") final Integer idPetshop,
-                                                @RequestParam(value = "nome") String nome,
-                                                @RequestParam(value = "valor") BigDecimal valor) {
-        List<ServicoDTO> servicoDTOList = servicoService.buscaServicoPorIdPetshopNomeValorServico(idPetshop, nome, valor);
+                                                @RequestParam(value = "nome") final String nome,
+                                                @RequestParam(value = "valor") final BigDecimal valor) {
+        final List<ServicoDTO> servicoDTOList = servicoService.buscaServicoPorIdPetshopNomeValor(idPetshop, nome, valor);
         return ResponseEntity.ok().body(servicoDTOList);
     }
 }
