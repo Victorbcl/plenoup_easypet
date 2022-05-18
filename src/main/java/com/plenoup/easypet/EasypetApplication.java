@@ -51,7 +51,5 @@ public class EasypetApplication implements CommandLineRunner {
         petshopRepository.save(petshop);
         petshop.setServicos((Arrays.asList(servicoTosa, servicoBanho)));
         servicoRepository.saveAll(Arrays.asList(servicoTosa, servicoBanho));
-
-        servicoController.findByPetshop(1);
     }
 }
