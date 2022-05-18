@@ -1,5 +1,6 @@
 package com.plenoup.easypet.entity;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,7 @@ import java.util.List;
 @Entity(name = "tb_petshop")
 @Getter
 @Setter
+@Builder
 public class Petshop {
 
     @Id

@@ -1,5 +1,6 @@
 package com.plenoup.easypet.entity;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,7 @@ import java.math.BigDecimal;
 @Entity(name = "tb_servico")
 @Getter
 @Setter
+@Builder
 public class Servico {
 
     @Id
