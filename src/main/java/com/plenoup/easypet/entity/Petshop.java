@@ -1,10 +1,15 @@
 package com.plenoup.easypet.entity;
 
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
-@Entity
-@Table(name = "tb_usuarios")
-public class Entidade {
+import javax.persistence.*;
+import java.util.List;
+
+@Entity(name = "tb_petshop")
+@Getter
+@Setter
+public class Petshop {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,6 +19,7 @@ public class Entidade {
     @Column(name = "nome")
     private String nome;
 
-    @Column(unique = true, name = "email")
-    private String email;
+    @OneToMany(mappedBy = "petshop")
+    private List<Servico> servicos;
+
 }
