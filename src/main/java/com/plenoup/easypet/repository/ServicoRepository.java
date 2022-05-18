@@ -13,6 +13,8 @@ import java.util.List;
 
 public interface ServicoRepository extends JpaRepository<ServicoEntity, Integer> {
 
+    List<ServicoEntity> findByPetshop_Id(Integer petshopId);
+
     List<ServicoEntity> findByPetshop(PetshopEntity petshopEntity);
 
     List<ServicoEntity> findByNomeContainingAndValorAndPetshop(@Param("nome") String nome,
