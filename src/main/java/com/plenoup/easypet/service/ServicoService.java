@@ -37,9 +37,9 @@ public class ServicoService {
     public List<ServicoDTO> buscaServicoPorIdPetshopNomeValorServico(final Integer idPetshop,
                                                                      final String nome,
                                                                      final BigDecimal valor) {
-        final Optional<PetshopEntity> optionalPetshop = petshopRepository.findById(idPetshop);
         final List<ServicoEntity> servicoEntityList;
         try {
+            final Optional<PetshopEntity> optionalPetshop = petshopRepository.findById(idPetshop);
             servicoEntityList = servicoRepository.findByNomeContainingAndValorAndPetshop(nome, valor, optionalPetshop.get());
         } catch (NoSuchElementException e) {
             return List.of();
