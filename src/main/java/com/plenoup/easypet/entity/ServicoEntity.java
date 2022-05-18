@@ -14,13 +14,13 @@ import java.math.BigDecimal;
 @Builder
 //@NoArgsConstructor
 //@AllArgsConstructor
-public class Servico implements Serializable {
+public class ServicoEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    public Servico() {
+    public ServicoEntity() {
     }
 
-    public Servico(final Integer id, final String nome, final BigDecimal valor, final Petshop petshop) {
+    public ServicoEntity(final Integer id, final String nome, final BigDecimal valor, final PetshopEntity petshop) {
         this.id = id;
         this.nome = nome;
         this.valor = valor;
@@ -40,5 +40,5 @@ public class Servico implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "id_petshop")
-    private Petshop petshop;
+    private PetshopEntity petshop;
 }

@@ -11,13 +11,13 @@ import java.util.List;
 @Builder
 //@NoArgsConstructor
 //@AllArgsConstructor
-public class Petshop {
+public class PetshopEntity {
     private static final long serialVersionUID = 1L;
 
-    public Petshop() {
+    public PetshopEntity() {
     }
 
-    public Petshop(final Integer id, final String nome, final List<Servico> servicos) {
+    public PetshopEntity(final Integer id, final String nome, final List<ServicoEntity> servicos) {
         this.id = id;
         this.nome = nome;
         this.servicos = servicos;
@@ -32,5 +32,5 @@ public class Petshop {
     private String nome;
 
     @OneToMany(mappedBy = "petshop")
-    private List<Servico> servicos;
+    private List<ServicoEntity> servicos;
 }

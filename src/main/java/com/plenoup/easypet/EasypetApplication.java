@@ -1,8 +1,8 @@
 package com.plenoup.easypet;
 
 import com.plenoup.easypet.controller.ServicoController;
-import com.plenoup.easypet.entity.Petshop;
-import com.plenoup.easypet.entity.Servico;
+import com.plenoup.easypet.entity.PetshopEntity;
+import com.plenoup.easypet.entity.ServicoEntity;
 import com.plenoup.easypet.repository.PetshopRepository;
 import com.plenoup.easypet.repository.ServicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,24 +32,24 @@ public class EasypetApplication implements CommandLineRunner {
     @Override
     public void run(final String... args) throws Exception {
 
-        final Petshop petshop = Petshop.builder()
+        final PetshopEntity petshopEntity = PetshopEntity.builder()
                 .nome("Easy Pet")
                 .build();
 
-        final Servico servicoTosa = Servico.builder()
+        final ServicoEntity servicoEntityTosa = ServicoEntity.builder()
                 .nome("Tosa")
                 .valor(BigDecimal.valueOf(80))
-                .petshop(petshop)
+                .petshop(petshopEntity)
                 .build();
 
-        final Servico servicoBanho = Servico.builder()
+        final ServicoEntity servicoEntityBanho = ServicoEntity.builder()
                 .nome("Banho")
                 .valor(BigDecimal.valueOf(45))
-                .petshop(petshop)
+                .petshop(petshopEntity)
                 .build();
 
-        petshopRepository.save(petshop);
-        petshop.setServicos((Arrays.asList(servicoTosa, servicoBanho)));
-        servicoRepository.saveAll(Arrays.asList(servicoTosa, servicoBanho));
+        petshopRepository.save(petshopEntity);
+        petshopEntity.setServicos((Arrays.asList(servicoEntityTosa, servicoEntityBanho)));
+        servicoRepository.saveAll(Arrays.asList(servicoEntityTosa, servicoEntityBanho));
     }
 }
