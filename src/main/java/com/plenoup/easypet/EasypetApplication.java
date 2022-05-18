@@ -38,7 +38,7 @@ public class EasypetApplication implements CommandLineRunner {
 
         final ServicoEntity servicoEntityTosa = ServicoEntity.builder()
                 .nome("Tosa")
-                .valor(BigDecimal.valueOf(80))
+                .valor(BigDecimal.valueOf(85))
                 .petshop(petshopEntity)
                 .build();
 
