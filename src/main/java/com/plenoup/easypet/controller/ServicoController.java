@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 
-@RestController("/easypet")
-@RequestMapping("/servicos")
+@RestController()
+@RequestMapping("/easypet/servicos")
 public class ServicoController {
 
     @Autowired
