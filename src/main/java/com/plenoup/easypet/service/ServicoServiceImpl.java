@@ -1,6 +1,7 @@
 package com.plenoup.easypet.service;
 
 import com.plenoup.easypet.controller.dto.ServicoDTO;
+import com.plenoup.easypet.core.ServicoService;
 import com.plenoup.easypet.repository.entity.ServicoEntity;
 import com.plenoup.easypet.repository.PetshopRepository;
 import com.plenoup.easypet.repository.ServicoRepository;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ServicoService {
+class ServicoServiceImpl implements ServicoService {
 
     @Autowired
     private ServicoRepository servicoRepository;
