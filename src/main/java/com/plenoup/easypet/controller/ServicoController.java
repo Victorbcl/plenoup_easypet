@@ -12,17 +12,17 @@ import java.math.BigDecimal;
 @RequiredArgsConstructor
 public class ServicoController {
 
-    private final ServicoService servicoServiceImpl;
+    private final ServicoService servicoService;
 
     @GetMapping("/{id_petshop}")
     public ResponseEntity<Object> buscarServicos(@PathVariable("id_petshop") final Integer idPetshop) {
-        return ResponseEntity.ok().body(servicoServiceImpl.buscaServicoPorIdPetshop(idPetshop));
+        return ResponseEntity.ok().body(servicoService.buscaServicoPorIdPetshop(idPetshop));
     }
 
     @GetMapping("/{id_petshop}/")
     public ResponseEntity<Object> pesquisarServicos(@PathVariable("id_petshop") final Integer idPetshop,
                                                     @RequestParam(value = "nome") final String nome,
                                                     @RequestParam(value = "valor") final BigDecimal valor) {
-        return ResponseEntity.ok().body(servicoServiceImpl.buscaServicoPorIdPetshopNomeValor(idPetshop, nome, valor));
+        return ResponseEntity.ok().body(servicoService.buscaServicoPorIdPetshopNomeValor(idPetshop, nome, valor));
     }
 }
