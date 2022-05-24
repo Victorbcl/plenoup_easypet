@@ -1,8 +1,8 @@
 package com.plenoup.easypet;
 
 import com.plenoup.easypet.controller.ServicoController;
-import com.plenoup.easypet.entity.PetshopEntity;
-import com.plenoup.easypet.entity.ServicoEntity;
+import com.plenoup.easypet.repository.entity.PetshopEntity;
+import com.plenoup.easypet.repository.entity.ServicoEntity;
 import com.plenoup.easypet.repository.PetshopRepository;
 import com.plenoup.easypet.repository.ServicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

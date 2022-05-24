@@ -1,6 +1,6 @@
 package com.plenoup.easypet.repository;
 
-import com.plenoup.easypet.entity.PetshopEntity;
+import com.plenoup.easypet.repository.entity.PetshopEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

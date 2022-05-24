@@ -1,4 +1,4 @@
-package com.plenoup.easypet.entity;
+package com.plenoup.easypet.repository.entity;
 
 import lombok.Builder;
 import lombok.Getter;

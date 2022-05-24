@@ -1,6 +1,6 @@
 package com.plenoup.easypet.repository;
 
-import com.plenoup.easypet.entity.ServicoEntity;
+import com.plenoup.easypet.repository.entity.ServicoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;

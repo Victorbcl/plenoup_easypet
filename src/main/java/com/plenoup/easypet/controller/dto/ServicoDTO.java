@@ -1,6 +1,6 @@
 package com.plenoup.easypet.controller.dto;
 
-import com.plenoup.easypet.entity.ServicoEntity;
+import com.plenoup.easypet.repository.entity.ServicoEntity;
 import lombok.Getter;
 import lombok.Setter;
 
