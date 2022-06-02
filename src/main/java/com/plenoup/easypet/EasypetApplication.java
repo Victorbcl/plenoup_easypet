@@ -1,10 +1,11 @@
 package com.plenoup.easypet;
 
 import com.plenoup.easypet.controller.ServicoController;
-import com.plenoup.easypet.repository.entity.PetshopEntity;
-import com.plenoup.easypet.repository.entity.ServicoEntity;
+import com.plenoup.easypet.core.CepService;
 import com.plenoup.easypet.repository.PetshopRepository;
 import com.plenoup.easypet.repository.ServicoRepository;
+import com.plenoup.easypet.repository.entity.PetshopEntity;
+import com.plenoup.easypet.repository.entity.ServicoEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,12 +26,18 @@ public class EasypetApplication implements CommandLineRunner {
     @Autowired
     private ServicoController servicoController;
 
+    @Autowired
+    private CepService cepService;
+
     public static void main(final String[] args) {
         SpringApplication.run(EasypetApplication.class, args);
     }
 
     @Override
     public void run(final String... args) throws Exception {
+
+//        TESTE WIREMOCK
+        cepService.buscaEndereco("30260070");
 
         final PetshopEntity petshopEntity = PetshopEntity.builder()
                 .nome("Easy Pet")
