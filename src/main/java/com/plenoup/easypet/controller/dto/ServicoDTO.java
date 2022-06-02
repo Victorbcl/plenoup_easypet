@@ -2,6 +2,7 @@ package com.plenoup.easypet.controller.dto;
 
 import com.plenoup.easypet.repository.entity.ServicoEntity;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
@@ -9,6 +10,7 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class ServicoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -17,7 +19,7 @@ public class ServicoDTO implements Serializable {
         this.valor = servicoEntity.getValor();
     }
 
-    private final String nome;
+    private String nome;
 
-    private final BigDecimal valor;
+    private BigDecimal valor;
 }
