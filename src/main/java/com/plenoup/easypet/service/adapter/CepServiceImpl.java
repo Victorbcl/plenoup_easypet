@@ -2,6 +2,7 @@ package com.plenoup.easypet.service.adapter;
 
 import com.plenoup.easypet.core.CepService;
 import com.plenoup.easypet.service.adapter.response.CepResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -16,7 +17,8 @@ class CepServiceImpl implements CepService {
     @Value("${cep-service.url}")
     private String url;
 
-    RestTemplate restTemplate = new RestTemplate();
+    @Autowired
+    private RestTemplate restTemplate;
 
     @Override
     public CepResponse buscaEndereco(final String cep) {
