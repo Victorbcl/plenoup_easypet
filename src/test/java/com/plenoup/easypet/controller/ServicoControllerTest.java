@@ -50,7 +50,7 @@ class ServicoControllerTest {
     }
 
     @Test
-    void Deve_RetornarSucesso_Quando_Executar_PesquisarServicos_IdPetshop_Nome_Valor_Valido() {
+    void Deve_RetornarSucesso_Quando_Executar_PesquisarServicos_IdPetshop_Nome_Valor_Validos() {
         when(servicoService.buscaServicoPorIdPetshopNomeValor(anyInt(), anyString(), ArgumentMatchers.any()))
                 .thenReturn(List.of(new ServicoDTO()));
 

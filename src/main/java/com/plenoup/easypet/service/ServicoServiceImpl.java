@@ -3,7 +3,6 @@ package com.plenoup.easypet.service;
 import com.plenoup.easypet.controller.dto.ServicoDTO;
 import com.plenoup.easypet.core.ServicoService;
 import com.plenoup.easypet.core.exception.NoContentException;
-import com.plenoup.easypet.repository.PetshopRepository;
 import com.plenoup.easypet.repository.ServicoRepository;
 import com.plenoup.easypet.repository.entity.ServicoEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +17,6 @@ class ServicoServiceImpl implements ServicoService {
 
     @Autowired
     private ServicoRepository servicoRepository;
-
-    @Autowired
-    private PetshopRepository petshopRepository;
 
     @Override
     public List<ServicoDTO> buscaServicoPorIdPetshop(final Integer idPetshop) {
