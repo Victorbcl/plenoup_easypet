@@ -16,6 +16,7 @@ import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.catchThrowableOfType;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -64,5 +65,6 @@ class ServicoServiceImplTest {
                         Exception.class);
 
         assertTrue(exception instanceof NoContentException);
+        assertThat(exception.getMessage(), equalTo("Recurso retornou resposta sem conteúdo"));
     }
 }
