@@ -51,7 +51,7 @@ class ServicoControllerTest {
 
     @Test
     void Deve_RetornarSucesso_Quando_Executar_PesquisarServicos_IdPetshop_Nome_Valor_Validos() {
-        when(servicoService.buscaServicoPorIdPetshopNomeValor(anyInt(), anyString(), ArgumentMatchers.any()))
+        when(servicoService.buscaServicoPorIdPetshopNomeValor(anyInt(), anyString(), ArgumentMatchers.any(BigDecimal.class)))
                 .thenReturn(List.of(new ServicoDTO()));
 
         final ResponseEntity<Object> responseEntity =
