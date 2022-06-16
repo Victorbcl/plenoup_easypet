@@ -6,6 +6,7 @@ import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
 import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RestController;
 
 @AnalyzeClasses(packages = "com.plenoup.easypet", importOptions = {ImportOption.DoNotIncludeTests.class})
 class RegrasArquiteturaTest {
@@ -33,4 +34,10 @@ class RegrasArquiteturaTest {
                     .that().areAnnotatedWith(Configuration.class)
                     .should().haveNameMatching(".*Configuration")
                     .because("Classes anotadas com '@Configuration' devem possuir 'Configuration' no sufixo");
+
+    static final ArchRule classes_com_annotation_RestController_devem_possuir_sufixo_Controller =
+            ArchRuleDefinition.classes()
+                    .that().areAnnotatedWith(RestController.class)
+                    .should().haveNameMatching(".*Controllerr.*")
+                    .because("Classes Controller devem possuir 'Controller no sufixo'");
 }
