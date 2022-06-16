@@ -1,5 +1,6 @@
 package com.plenoup.easypet.infrastructure.web;
 
+import com.plenoup.easypet.core.exception.CepServiceException;
 import com.plenoup.easypet.core.exception.NoContentException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,5 +14,10 @@ public class RestControllerExceptionHandler {
     @ExceptionHandler
     ResponseEntity<Object> handleException(final NoContentException ex, final WebRequest request) {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
+    }
+
+    @ExceptionHandler
+    ResponseEntity<Object> handleException(final CepServiceException ex, final WebRequest request) {
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(null);
     }
 }
