@@ -35,9 +35,10 @@ class RegrasArquiteturaTest {
                     .should().haveNameMatching(".*Configuration")
                     .because("Classes anotadas com '@Configuration' devem possuir 'Configuration' no sufixo");
 
+    @ArchTest
     static final ArchRule classes_com_annotation_RestController_devem_possuir_sufixo_Controller =
             ArchRuleDefinition.classes()
                     .that().areAnnotatedWith(RestController.class)
-                    .should().haveNameMatching(".*Controllerr.*")
+                    .should().haveNameMatching(".*Controller.*")
                     .because("Classes Controller devem possuir 'Controller no sufixo'");
 }
