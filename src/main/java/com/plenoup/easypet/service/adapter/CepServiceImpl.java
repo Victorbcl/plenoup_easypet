@@ -1,6 +1,7 @@
 package com.plenoup.easypet.service.adapter;
 
 import com.plenoup.easypet.core.CepService;
+import com.plenoup.easypet.core.exception.CepServiceException;
 import com.plenoup.easypet.service.adapter.response.CepResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,6 +13,7 @@ import org.springframework.web.util.UriTemplate;
 
 import java.net.URI;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 class CepServiceImpl implements CepService {
@@ -26,14 +28,20 @@ class CepServiceImpl implements CepService {
     public CepResponse buscaEndereco(final String cep) {
         final Map<String, String> params = Map.of("cep", cep);
         final URI finalUrl = new UriTemplate(url).expand(params);
-        final ResponseEntity<CepResponse> response = restTemplate.exchange(
-                finalUrl,
-                HttpMethod.GET,
-                new HttpEntity<>(getHttpHeaders()),
-                new ParameterizedTypeReference<>() {
-                }
-        );
-        return response.getBody();
+        final ResponseEntity<CepResponse> response;
+        try {
+            response = restTemplate.exchange(
+                    finalUrl,
+                    HttpMethod.GET,
+                    new HttpEntity<>(getHttpHeaders()),
+                    new ParameterizedTypeReference<>() {
+                    }
+            );
+        } catch (final Exception e) {
+            throw new CepServiceException();
+        }
+
+        return Optional.ofNullable(response.getBody()).orElseThrow(CepServiceException::new);
     }
 
     private HttpHeaders getHttpHeaders() {
