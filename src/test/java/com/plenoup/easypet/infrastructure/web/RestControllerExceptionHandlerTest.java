@@ -1,6 +1,7 @@
 package com.plenoup.easypet.infrastructure.web;
 
 import com.plenoup.easypet.commons.WebRequestTest;
+import com.plenoup.easypet.core.exception.CepServiceException;
 import com.plenoup.easypet.core.exception.NoContentException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,5 +27,12 @@ class RestControllerExceptionHandlerTest {
         final ResponseEntity<Object> response =
                 restControllerExceptionHandler.handleException(new NoContentException(), webRequest);
         assertTrue(response.getStatusCode().is2xxSuccessful());
+    }
+
+    @Test
+    void testCepServiceException() {
+        final ResponseEntity<Object> response =
+                restControllerExceptionHandler.handleException(new CepServiceException(), webRequest);
+        assertTrue(response.getStatusCode().is4xxClientError());
     }
 }
