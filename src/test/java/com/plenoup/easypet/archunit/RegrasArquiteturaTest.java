@@ -8,7 +8,7 @@ import com.tngtech.archunit.lang.syntax.ArchRuleDefinition;
 import org.springframework.context.annotation.Configuration;
 
 @AnalyzeClasses(packages = "com.plenoup.easypet", importOptions = {ImportOption.DoNotIncludeTests.class})
-public class RegrasArquiteturaTest {
+class RegrasArquiteturaTest {
 
     @ArchTest
     static final ArchRule classes_de_implementacao_nao_devem_ser_publicas =
