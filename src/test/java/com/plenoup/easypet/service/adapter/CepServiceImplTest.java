@@ -70,6 +70,7 @@ class CepServiceImplTest {
 
         assertNotNull(httpEntityArgumentCaptorValue);
         assertThat(httpEntityArgumentCaptorValue.getHeaders().size(), equalTo(1));
+        assertThat(httpEntityArgumentCaptorValue.getHeaders().get("Content-Type").get(0), equalTo("application/json"));
         assertThat(methodArgumentCaptorValue, equalTo(HttpMethod.GET));
     }
 
